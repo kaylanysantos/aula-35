@@ -25,12 +25,10 @@ encontrarTodos() {
   }
   excluir(id) {
     const index = videos.findIndex((v) => v.id === id);
-    if (index !== -1) {
-      videos.splice(index, 1);
+    return videos.splice(index, 1);
       }
-    
   }
-  }
+  
 
 
 module.exports = new VideosService();
