@@ -16,10 +16,10 @@ encontrarTodos() {
   atualizar(id, videoAtualizado) {
     const video = videos.find((v) => v.id === id);
 
-    video.titulo = videoAtualizadotitulo;
-      video.descricao = videoAtualizadodescricao;
-      video.quantidadeViews = videoAtualizadoquantidadeViews;
-      video.canalID = videoAtualizadocanalID;
+    video.titulo = videoAtualizado.titulo;
+    video.descricao = videoAtualizado.descricao;
+    video.quantidadeViews = videoAtualizado.quantidadeViews;
+    video.canalID = videoAtualizado.canalID;
   }
 
   }
