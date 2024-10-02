@@ -10,16 +10,17 @@ class Video {
     this.image = image;
     this.canalID = canalID;
   }
+ static adicionarView() {
+  this.quantidadeViews += 1
+ }
 
-  encontrarTodos() {}
-  
-  buscarPeloId(id) {}
+ static exibirInformacoes() {
+  return this.quantidadeViews;
+ }
 
-  adicionar() {}
-  
-  atualizar(id, videoAtualizado) {}
-
-  excluir(id) {}
+ static buscarCanal() {
+  return this.canalID;
+ }
 }
 
 module.exports = Video;

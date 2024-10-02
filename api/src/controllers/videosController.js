@@ -1,8 +1,11 @@
-const { videos } = require("../mock/dados.json");
+const VideosService = require("../services/VideosService")
+
 const Video = require("../models/Video");
+
 class videosController {
   index(req, res) {
     try {
+      const videos = VideosService.encontrarTodos();
       if (videos.length > 0) {
         res.status(200).json(videos);
       } else {
@@ -18,7 +21,11 @@ class videosController {
   show(req, res) {
     try {
       const id = parseInt(req.params.id);
-      const video = videos.find((v) => v.id === id);
+
+      if(!Id) {
+        throw new error("o ID não foi passado");
+      }
+      const video = videosService.buscarPeloId(Id)
 
       if (video) {
         res.status(200).json(video);
@@ -43,7 +50,7 @@ class videosController {
         canalID
       );
 
-      videos.push(novoVideo);
+      videosService.adicionar(novoVideo);
       res.status(201).json(novoVideo);
     } catch (erro) {
       res
@@ -57,6 +64,12 @@ class videosController {
       const { titulo, descricao, quantidadeViews, canalID } = req.body;
       const id = parseInt(req.params.id);
       const video = videos.find((v) => v.id === id);
+      if(!Id) {
+        throw new error("o ID não foi passado");
+      }
+      const Video = videosService.atualizar(Id, body)
+
+
 
       if (!video) {
         return res.status(404).json({ mensagem: "Vídeo não encontrado" });
